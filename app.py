@@ -8,7 +8,7 @@ import os
 openai.api_key = st.secrets.openai_api_key
 
 # Load and convert the knowledge base
-csv_file = 'CRM Tickets Knowledge - Sheet 1.csv'
+csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
 df = pd.read_csv(csv_file)
 knowledge_base_json = df.to_json(orient='records')
 
