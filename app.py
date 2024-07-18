@@ -9,7 +9,7 @@ azure_api_key = st.secrets["openai_api_key"]
 
 # Set up Azure
 azure_endpoint = "https://oai0-2lgwc6k5ex2by.openai.azure.com/"
-azure_deployment_name = "chat"
+azure_deployment_name = "gpt4-reviewer"
 
 # Load and convert the knowledge base
 csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
