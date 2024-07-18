@@ -20,7 +20,7 @@ def query_openai(prompt, knowledge_base):
             model="gpt-3.5-turbo",  # Or another model of your choice
             messages=[
                 {"role": "system", "content": "You are a support agent assistant."},
-                {"role": "user", "content": combined_prompt}
+                {"role": "user", "content": "is this working"}
             ],
             max_tokens=1500,
             temperature=0.0
