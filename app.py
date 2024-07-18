@@ -1,15 +1,14 @@
 import streamlit as st
 import pandas as pd
 import json
+import openai
 import os
-import requests
 
-# Set your Azure OpenAI API key from Streamlit secrets
-azure_api_key = st.secrets["openai_api_key"]
+# Set your OpenAI API key from Streamlit secrets
+openai_api_key = st.secrets["openai_api_key"]
 
-# Set up Azure
-azure_endpoint = "https://oai0-2lgwc6k5ex2by.openai.azure.com/"
-azure_deployment_name = "gpt4-reviewer"
+# Set up OpenAI
+openai.api_key = openai_api_key
 
 # Load and convert the knowledge base
 csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
@@ -19,36 +18,23 @@ knowledge_base_json = df.to_json(orient='records')
 def query_openai(prompt, knowledge_base):
     combined_prompt = f"Knowledge base: {knowledge_base}\n\nUser: {prompt}\nAssistant:"
 
-    headers = {
-        "Content-Type": "application/json",
-        "api-key": azure_api_key
-    }
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # Or another model of your choice
+            messages=[
+                {"role": "system", "content": "You are a support agent assistant."},
+                {"role": "user", "content": combined_prompt}
+            ],
+            max_tokens=1500,
+            temperature=0.0
+        )
+        
+        # Check and return the response
+        return response['choices'][0]['message']['content'].strip()
     
-    body = {
-        "messages": [
-            {"role": "system", "content": "You are a support agent assistant."},
-            {"role": "user", "content": combined_prompt}
-        ],
-        "max_tokens": 1500,
-        "temperature": 0.0
-    }
-    
-    response = requests.post(
-        f"{azure_endpoint}/openai/deployments/{azure_deployment_name}/completions?api-version=2024-06-01",
-        headers=headers,
-        json=body
-    )
-    
-    response_json = response.json()
-
-    # Log the response for debugging purposes
-    st.write(response_json)
-
-    if 'choices' not in response_json:
-        st.error(f"Error in API response: {response_json}")
+    except Exception as e:
+        st.error(f"Error in API request: {str(e)}")
         return "Sorry, I couldn't generate a response. Please try again."
-
-    return response_json['choices'][0]['message']['content'].strip()
 
 # Streamlit app
 st.title('Chatbot with Knowledge Base')
