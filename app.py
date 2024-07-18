@@ -5,7 +5,7 @@ import openai
 import os
 
 # Set your OpenAI API key from Streamlit secrets
-openai.api_key = "sk-proj-hln6FzxKZXKTeodlsx9XT3BlbkFJFXusosA76cwtayiAz8HM"
+openai.api_key = st.secrets["openai_api_key"]
 
 # Load and convert the knowledge base
 csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
