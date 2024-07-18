@@ -5,7 +5,7 @@ import openai
 import os
 
 # Set your OpenAI API key from Streamlit secrets
-openai_api_key = st.secrets["openai_api_key"]
+openai.api_key = st.secrets["openai_api_key"]
 
 # Set up OpenAI
 openai.api_key = openai_api_key
@@ -19,7 +19,7 @@ def query_openai(prompt, knowledge_base):
     combined_prompt = f"Knowledge base: {knowledge_base}\n\nUser: {prompt}\nAssistant:"
 
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",  # Or another model of your choice
             messages=[
                 {"role": "system", "content": "You are a support agent assistant."},
