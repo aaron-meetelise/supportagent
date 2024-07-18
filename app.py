@@ -40,7 +40,7 @@ def query_openai(prompt, knowledge_base):
     )
     
     response_json = response.json()
-    return response_json.data.choices[0].message.content.strip()
+    return data.choices[0].message.content.strip()
 
 # Streamlit app
 st.title('Chatbot with Knowledge Base')
