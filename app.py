@@ -17,14 +17,14 @@ def query_openai(prompt, knowledge_base):
     combined_prompt = f"Knowledge base: {knowledge_base}\n\nUser: {prompt}\nAssistant:"
     
     # Call the OpenAI API
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-3.5-turbo",  # Or the model you prefer
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are a support agenet assistant."},
             {"role": "user", "content": combined_prompt}
         ],
-        max_tokens=150,
-        temperature=0.7
+        max_tokens=1500,
+        temperature=0.0
     )
     
     return response['choices'][0]['message']['content'].strip()
