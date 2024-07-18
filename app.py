@@ -5,7 +5,7 @@ import os
 import requests
 
 # Set your Azure OpenAI API key from Streamlit secrets
-azure_api_key = st.secrets.openai_api_key
+azure_api_key = st.secrets[openai_api_key]
 
 # Set up Azure
 azure_endpoint = "https://oai0-2lgwc6k5ex2by.openai.azure.com/"
