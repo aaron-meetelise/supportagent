@@ -27,7 +27,7 @@ def query_openai(prompt, knowledge_base):
         )
         
         # Check and return the response
-        return response['choices'][0]['message']['content'].strip()
+        return response.choices[0].message.content.strip()
     
     except Exception as e:
         st.error(f"Error in API request: {str(e)}")
