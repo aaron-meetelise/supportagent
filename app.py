@@ -4,7 +4,7 @@ import pandas as pd
 import json
 
 # Set your OpenAI API key
-openai.api_key = 'your-openai-api-key'
+openai.api_key = openai_api_key
 
 # Load and convert the knowledge base
 csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
