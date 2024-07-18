@@ -1,0 +1,146 @@
+Topic,Topic Type,Summary,Associated Tickets
+User is seeing buildings with purple icons in their community dropdown they do not recognize,Issue Debugging,Check the users roles by going to https://app.meetelise.com/users and inputting the guest cards email,https://meetelise.zendesk.com/agent/tickets/58630
+User is seeing buildings with purple icons in their community dropdown they do not recognize,Issue Debugging,Recognized that the purple icons were building groups so I checked retool (https://meetelise.retool.com/apps/7387dca2-a31b-11ed-8b39-abdedd68c311/apps-in-development/Building%20Group%20Creation) to see if there are building groups and what type for their organization,https://meetelise.zendesk.com/agent/tickets/58630
+Purple icons in building dropdown,Product Context,Buildings with purple icons in the building dropdowns are building groups,
+User is seeing buildings with purple icons in their community dropdown they do not recognize,Issue Solution,Determined the unknown buidling dropdown options were building groups for cross-selling and shared this information with the user,https://meetelise.zendesk.com/agent/tickets/58630
+Prospect tasks missing from task queue,Product Context,Prospect tasks get dismissed from the task queue after 30 days with no reply from the agent,
+Website widget/pixel installation,Product Context,All organizations have an org wide pixel code that attempts to match the buiding. The org wide code can be found here: https://app.meetelise.com/settings/pixel There is also building specific pixel codes that can be used when the org code is not functioning as intended. Building specific code can be found here: https://app.meetelise.com/settings/widgets,
+Building specific pixel code,Issue Solution,Customer requested their building specific pixel code which I found at https://app.meetelise.com/settings/widgets and then filtered for the building name. The code is on the bottom of the page so I needed to scroll,https://meetelise.zendesk.com/agent/tickets/58719
+Website widget/pixel,Product Context,"Customers may refer to the pixel java script as ""code"". If they ask for ""the website code"", this is likely what they are referring to",
+Contact wants to resubscribe after unsubscribing,Issue Solution,"Advise the agent to advise the contact to text ""unstop"" to resubscribe to communication",https://meetelise.zendesk.com/agent/tickets/58703
+"Agent replied in their CRM, Knock, but cannot see the reply in Elise CRM",Issue Debugging,"They shared a screenshot of their reply in their CRM, Knock, so I know they replied. They did not share the conversation link so I went to the prospects page (https://app.meetelise.com/contacts/prospect), filtered for their organization, and searched for the prospect by name. After finding the list I confirmed there was no agent reply.",https://meetelise.zendesk.com/agent/tickets/58611
+"Agent replied in their CRM, Knock, but cannot see the reply in Elise CRM",Issue Solution,"We cannot see replies in external CRMs. To clear a task the agent would need to either take over & reply externally, dismiss the task & reply externally, or reply in EliseCRM. ",https://meetelise.zendesk.com/agent/tickets/58611
+Agent take overs,Product Context,"Agent take overs are when they assign a guest card to themselves either for a limited amount of time or forever, stopping the AI from following up",
+RentCafe CRM integration (a Yardi product),Product Context,"Elise integrates with Yardi Voyager and can work through Voyager to get data from Yardi's CRM called RentCafe. We have a pretty full integration however the calendar is a little limited. We can only pull open time slots and office hours, not touring hours",
+Yardi PMS Integration,Product Context,"Elise integrates with Yardi 's PMS, Voyager. It has very little limitations on what data can be pulled from the PMS",
+Knowledge used in replies,Issue Debugging,"User reported the information the AI said was wrong so I needed to investigate the knowledge used in the reply. I went to the state by going to the conversation and clicking ""View State"", I enabled ""predicated events"", and looked for ""Knowledge Prompt"" in the predicted events. There doesn't seem to be a ""Knowledge Prompt"" all the time, unclear why not.",
+Knowledge used in replies,Issue Solution,User reported the information the AI said was wrong so I needed to investigate the knowledge used in the reply. Used that state to determine that there was conflicting knowledge between an agent and their PMS. The PMS knowledge was just very general that it was being mis-understood.,
+Knowledge Management,Product Context,"Knowledge is the information used in conversations by the AI. The most common type is text but there are also media and specials. It is pulled in from various sources including the onboarding form, PMS system, and scraped property websites. When agents say something that is new to the knowledge base or conflicts with existing knowledge, the system will surface the new or updated knowledge for approval to users with knowledge approval permission. Text based knowledge is managed here: https://app.meetelise.com/knowledge",
+Specials,Product Context,Specials are promotions property managers run to increase lease signed rates like 2 weeks free. They are managed as part of knowledge here: https://app.meetelise.com/knowledge?view=incentives,
+Syndication,Product Context,Syndication is  the process of automatically listing an apartment after it is marked as available in PMS. EliseCRM does not offer syndiction to customers today but will eventually,
+Entrada Integration,Product Context,Elise integrates with Entrada's CRM and PMS. There are very little limitiations to the integration so customers using Entrada are a good match for Elise,
+Absorption Period,Vocabulary,"In multifamily rental properties, this metric measures the rate at which available units are rented (typically over 12 months), and is adjusted to reflect a property's turnover rates during the specified period.",
+Absorption Rate,Vocabulary,"The rate that available units that are expected to rent. It is calculated as the total number of units rented divided by the total number of units listed (e.g., 42 units rented ÷ 60 units for rent = 70% absorption).",
+EliseCRM,Vocabulary,MeetElise's product that maximizes automation and fills in the functionality gaps that allows a client to completely remove their CRM.,
+Brokerage Firm,Vocabulary,"A brokerage firm or brokerage company is a middleman who connects buyers and sellers to complete a transaction for stock shares, bonds, options, and other financial instruments.",
+Build-to-rent,Vocabulary,"Build-to-rent community is different from someone buying just 1 housing. A build-to-rent home is one that has been built for the purpose of long-term rental. Unlike standard apartments and similar, multi-family structures, build-to-rent homes are specifically intended to be an ideal option for individuals searching for a long-term rental residence",
+California Consumer Privacy Act (CCPA),Vocabulary,"A state law allowing California residents to determine what PII is stored and request for that PII to be deleted. We do have a CCPA process in place and the steps for a prospect to submit a request are in our privacy policy. In the case that a prospect submits a CCPA request, we will delete all data linked to the prospect (PII and non-PII).",
+Communities (aka Buildings / Properties),Vocabulary,A building managed by an organization,
+Context,Vocabulary,"Internally, we consider a lead to be a prospective tenant associated with an AI user. We create multiple “contexts” per lead. A context is essentially a conversation thread. We create a new context for each lead/building/contact type (email v text) combination and de-dupe using this uniqueness criteria. A context is similar in structure to a GC and would maintain the same data. Contexts contain lead PII and would be subject to CCPA",
+Centralized Leasing Office (CLO),Vocabulary,When one leasing office handles multiple communities. Can be campus or scattered,
+Customer Relationship Manager (CRM),Vocabulary,The systems used by PMCs to manage data on leads and tenants. This information is maintained in guest cards (GCs). ME pulls or is pushed information from CRMs.,
+Garden-Style Apartment Buildings,Vocabulary,"Apartment buildings typically no more than four stories high, with multiple apartments per story, and landscaped grounds surrounding them. In most instances buildings are arranged with interior courtyards open at one end, and parking either in front of the buildings or along the perimeter. Each apartment has its own building entrance off an open breezeway or shares an entrance via a stairwell and interior hallway that connects other units immediately above and/or below it. Each apartment occupies only one level. Garden-style apartment buildings typically do not have elevators.",
+Guest Card (GC),Vocabulary,The information about a lead that is stored in a customer’s CRM,
+Interactive Voicemail Response (IVR),Vocabulary,An automated voicemail system for phone-to-text leads,
+Internet Listing Service (ILS),Vocabulary,"A service that provides unit availability for leads (apartments.com, zillow, streeteasy, apartmentlist.com, etc)",
+Lead (aka Prospect / Prospective Resident / Prospective Renter),Vocabulary,This is what we call a prospective renter who inquires about available units,
+Lease Up,Vocabulary,New buildings that need to lease 100% of the building,
+Leasing Agent,Vocabulary,An agent who manages the rental process at a building or buildings,
+Leasing Calendar,Vocabulary,"Building hours and tour availability data maintained within either a CRM or in a separate calendar tool (Google, Outlook, etc).",
+MECal,Vocabulary,MeetElise's calendar that is part of EliseCRM,
+MeetElise (ME),Vocabulary,"Used within documentation to encompass our system, including the database, our AI leasing assistant and our code base.",
+Net Operating Income (NOI),Vocabulary,"Revenue minus all operating costs, excluding debt service, depreciation, capital expenditures, and income taxes.",
+Organizations (aka PMC),Vocabulary,Property Management Company (our clients),
+Personal Identifiable Information (PII),Vocabulary,"Any data that can be used to identify a specific individual (reference data - name, phone number, email, mailing address, usernames, social security/tax IDs). From our privacy policy: We will store ""(a) email, phone number, and/or consent to be contacted via text message; (b) information filled out on a contact form (e.g., name, move-in date, apartment size preferences); and (c) the content of email and/or text messages End Users issue to us."" This PII will be stored in our system as part of the email / text message. We don't extract any PII from the email / text messages that's not necessary for serving the prospect.",
+Property Manager (PM),Vocabulary,An agent who manages the rental process and the leasing agents at a building or buildings,
+Property Management System (PMS),Vocabulary,"The systems used by PMCs to manage community, building and unit information, including availability, pricing and incentive/concession data. ME pulls or is pushed information from PMSs and sources further information related to communities and buildings from community forms.",
+Resident (aka Tenant),Vocabulary,"A current resident of a unit within a building. The industry does not use the word ""tenant,"" they prefer ""resident"" as its friendly.",
+Return of Investment (ROI),Vocabulary,An undiscounted return over a single period expressed as a percentage of the initial capital invested. ROI = (Gains - Cost) / Cost,
+SGT,Vocabulary,self guided tour,
+Single Family Rentals (SFR),Vocabulary,Housing is typically split into two industry terms - Multi-family (buildings containing 2 or more rental apartments) and Single-family (a standalone 1 home for rent). Single Family Rentals are a large part of the rental market.,
+Subsidy,Vocabulary,"A subsidy is a benefit given to an individual, business, or institution, usually by the government. It can be direct (such as cash payments) or indirect (such as tax breaks). The subsidy is typically given to remove some type of burden, and it is often considered to be in the overall interest of the public, given to promote a social good or an economic policy.",
+Syndication,Vocabulary,The process of automatically listing an apartment after it is marked as available in PMS,
+Unit (aka apartment),Vocabulary,Individual apartment within a building,
+Marking residents tasks as prospect tasks in the task queue,Issue Debugging,"First I want to confirm that the guest cards are residents by going to the resident page (https://app.meetelise.com/contacts/resident) and filtering for the building (I find the building name in the screenshot they shared) and guest card name (I find the guest card name in the screenshot they shared). I identified that they are actaully ""future residents"".",https://meetelise.zendesk.com/agent/tickets/58692
+Marking residents tasks as prospect tasks in the task queue,Issue Solution,"After issue Debugging and determining that the guest cards were actually ""future residents"", I determined that customers select if their leasing team or the resident team handle residents prior to move in and the task type is a reflection of that selection",https://meetelise.zendesk.com/agent/tickets/58692
+Leasing Daily Report,Product Context,"The leasing daily report srovides a summary of replies needed, leads not responding, unsubscribed leads, inactive leads, tours booked, and new leads.",
+"EliseCRM ""Community Manager"" Role",Product Context,"Description: Manages leasing at one or more properties
+Permissions:
+Can suggest and approve knowledge
+Can read and update settings and reporting for all products
+Can view and respond to tasks and conversations for all products
+Can invite/update the following user types: Community Manager, Leasing Agent, Accounts Receivable, Maintenance Supervisor
+Receives Daily Report for Leasing
+Accessible Pages:
+Main: Activity, Tasks, Contacts, Calendar, Reports, Communities, Knowledge (Community Info), Knowledge (Specials), Users, Units
+Phone: Vanity Numbers, VoiceAI Handoff, Scenarios, Call Log
+Onboarding: Launch Status, Invite Your Team, Knowledge Setup
+Settings: Tours, Pixel, Website Widget, Resident, Building, Affordable",
+"EliseCRM ""Organization Admin"" Role",Product Context,"Description: Manages all settings, users and products for all properties for an organization
+Organization Admins do not need any additional roles, as they have access to everything
+Permissions:
+Can suggest and approve knowledge
+Can read and update settings and reporting for all products
+Can view and respond to tasks and conversations for all products
+Can invite/update the following user types: Organization Admin, Community Manager, Resident Manager, Leasing Agent, Accounts Receivable, Maintenance Supervisor
+Accessible Pages:
+Main: Activity, Tasks, Contacts, Calendar, Reports, Communities, Knowledge (Community Info), Knowledge (Specials), Users, Units
+Phone: Vanity Numbers, VoiceAI Handoff, Scenarios, Call Log, Call Center
+Onboarding: Launch Status, Invite Your Team, Knowledge Setup
+Settings: Tours, Pixel, Website Widget, Resident, Building, SSO, Affordable",
+"EliseCRM ""Owner"" Role",Product Context,"Description: Administrator at an ownership group
+Permissions:
+Can have access to multiple buildings in different organizations
+Can suggest and approve knowledge
+Can read and update settings and reporting for all products
+Cannot view or respond to tasks and conversations
+Cannot invite or update other users
+Receives Daily Report for Leasing
+Accessible Pages:
+Main: Contacts, Calendar, Reports, Knowledge (Community Info), Knowledge (Specials), Users, Units
+Settings: Tours, Pixel, Website Widget, Resident, Building, Affordable",
+"EliseCRM ""Leasing Agent"" Role",Product Context,"Description: Manages leasing at one or more properties
+Permissions:
+Can suggest knowledge (but not approve)
+Can read and update Leasing settings and reporting
+Cannot read or update for Renewals or Delinquency
+Can view and respond to tasks and conversations for Leasing
+Cannot invite or update other users
+Receives Daily Report for Leasing
+Accessible Pages:
+Main: Activity, Tasks, Contacts, Calendar, Reports, Communities, Knowledge (Community Info), Knowledge (Specials), Users, Units
+Phone: Vanity Numbers, VoiceAI Handoff, Call Log
+Onboarding: Launch Status, Invite Your Team, Knowledge Setup
+Settings: Tours, Pixel, Website Widget, Building, Affordable",
+"EliseCRM ""Accounts Receivable"" Role",Product Context,"Description: Manages Delinquency and Resident account at one or more properties
+Accounts Receivable users can be thought of as the Leasing Agents of Delinquency. They interact with residents directly and can step in should the AI ever need help.
+Permissions:
+Can suggest knowledge (but not approve)
+Can read and update Delinquency settings and reporting
+Cannot read or update for Leasing or Renewals
+Can view and respond to tasks and conversations for Delinquency
+Cannot invite or update other users
+Receives Daily Report for Delinquency
+Accessible Pages:
+Main: Activity, Tasks, Contacts, Calendar, Reports, Knowledge (Community Info), Knowledge (Specials), Users, Units
+Settings: Resident",
+"EliseCRM ""Regional Delinquency Manager"" Role",Product Context,"Description: Manager who oversees Delinquency and has visibility into Delinquency tracking
+Permissions:
+Can suggest and approve knowledge
+Can read and update Delinquency settings and reporting
+Cannot read or update for Leasing or Renewals
+Can view and respond to tasks and conversations for Delinquency
+Cannot invite or update other users
+Receives Delinquency Daily Report if a community is lacking performance
+Accessible Pages:
+Main: Activity, Tasks, Contacts, Calendar, Reports, Knowledge (Community Info), Knowledge (Specials), Users, Units
+Settings: Resident",
+"EliseCRM ""Resident Manager"" Role",Product Context,"Description: Manages resident questions, maintenance, and renewals
+Permissions:
+Can suggest knowledge (but not approve)
+Can read and update Renewals settings and reporting
+Cannot read or update for Leasing or Delinquency
+Can view and respond to tasks and conversations for Renewals
+Cannot invite or update other users
+Accessible Pages:
+Main: Activity, Tasks, Contacts, Calendar, Reports, Knowledge (Community Info), Knowledge (Specials), Units
+Settings: Resident",
+"EliseCRM ""Site Manager"" Role",Product Context,"Description: Manages an emergency maintenance or other resident schedule for a team
+Permissions:
+Cannot invite or update other users
+Can view, edit, and create users for phone scheduling
+Can view and respond to tasks and conversations
+Accessible Pages:
+Main: Activity, Tasks
+Phone: Vanity Numbers, VoiceAI Handoff, Scenarios, Call Log",
+"User is saying there is a ""no tours availible"" message on their website widget",Issue Debugging,First I want to confirm the calendar availability by going to the buildings calendar page: https://app.meetelise.com/calendar. I find the building name from screenshot they sent. There appears to be time from on their calendar so I now want to confirm if they have tours enabled by going to their tour settings: https://app.meetelise.com/settings/tours. They also seem to have tours enabled so now I try to replicate the issue by navigating to their website and trying to book a tour. The website says no tours for me as well so I check if it's an issue with the tour scheduling widget for calendar availability by asking the webchat bot for the earliest tour availible. The bot also says there are no tours so it must be the calendar availibilty. Now I need to check which system is the calendar source of truth. I use Salesforce (https://meetelise.lightning.force.com/) to see what their PMS and CRM is. I see they are using Yardi Voyager for their PMS and RentCafe for their CRM. I check Retool (https://meetelise.retool.com/apps/21a0f520-5757-11eb-98ee-4b749298f50c/onboarding/yardi-integrations-test) to see if they are using Yardi for their calendar but it says they are not. I check to see if there are just no units availible by going to their units page (https://app.meetelise.com/units). I see they have only 3 units marked availible which is low but they should still be able to book tours,https://meetelise.zendesk.com/agent/tickets/58824
