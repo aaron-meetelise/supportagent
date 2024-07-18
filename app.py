@@ -34,7 +34,7 @@ def query_openai(prompt, knowledge_base):
     }
     
     response = requests.post(
-        f"{azure_endpoint}/openai/deployments/{azure_deployment_name}/completions?api-version=2024-06-01&api-key={azure_api_key}",
+        f"{azure_endpoint}/openai/deployments/{azure_deployment_name}/completions?api-version=2024-06-01",
         headers=headers,
         json=body
     )
