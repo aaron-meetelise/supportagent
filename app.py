@@ -18,7 +18,7 @@ def query_openai(prompt, knowledge_base):
     
     # Call the OpenAI API
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",  # Or the model you prefer
+        model="gpt-4o-mini",  # Or the model you prefer
         messages=[
             {"role": "system", "content": "You are a support agenet assistant."},
             {"role": "user", "content": combined_prompt}
