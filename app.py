@@ -2,12 +2,13 @@ import streamlit as st
 import openai
 import pandas as pd
 import json
+import os
 
 # Set your OpenAI API key
 openai.api_key = st.secrets.openai_api_key
 
 # Load and convert the knowledge base
-csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
+csv_file = 'knowledge_base.csv'
 df = pd.read_csv(csv_file)
 knowledge_base_json = df.to_json(orient='records')
 
@@ -16,16 +17,17 @@ def query_openai(prompt, knowledge_base):
     combined_prompt = f"Knowledge base: {knowledge_base}\n\nUser: {prompt}\nAssistant:"
     
     # Call the OpenAI API
-    response = openai.Completion.create(
-        engine="davinci",  # Or the model you prefer
-        prompt=combined_prompt,
-        max_tokens=1500,
-        n=1,
-        stop=None,
-        temperature=0.0
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Or the model you prefer
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": combined_prompt}
+        ],
+        max_tokens=150,
+        temperature=0.7
     )
     
-    return response.choices[0].text.strip()
+    return response['choices'][0]['message']['content'].strip()
 
 # Streamlit app
 st.title('Chatbot with Knowledge Base')
