@@ -40,6 +40,14 @@ def query_openai(prompt, knowledge_base):
     )
     
     response_json = response.json()
+
+    # Log the response for debugging purposes
+    st.write(response_json)
+
+    if 'choices' not in response_json:
+        st.error(f"Error in API response: {response_json}")
+        return "Sorry, I couldn't generate a response. Please try again."
+
     return response_json['choices'][0]['message']['content'].strip()
 
 # Streamlit app
