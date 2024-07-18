@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import requests
 
-# Set your OpenAI API key
-azure_api_key = st.secrets.openai_api_key
+# Set your Azure OpenAI API key from Streamlit secrets
+azure_api_key = st.secrets["openai_api_key"]
 
 # Set up Azure
 azure_endpoint = "https://oai0-2lgwc6k5ex2by.openai.azure.com/"
-deployment_name = "chat"
+azure_deployment_name = "chat"
 
 # Load and convert the knowledge base
 csv_file = 'CRM Tickets Knowledge - Sheet1.csv'
