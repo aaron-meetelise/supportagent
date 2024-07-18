@@ -27,7 +27,7 @@ def query_openai(prompt, knowledge_base):
     body = {
         "messages": [
             {"role": "system", "content": "You are a support agent assistant."},
-            {"role": "user", "content": combined_prompt}
+            {"role": "user", "content": "Are you working?"}
         ],
         "max_tokens": 1500,
         "temperature": 0.0
