@@ -27,14 +27,14 @@ def query_openai(prompt, knowledge_base):
     body = {
         "messages": [
             {"role": "system", "content": "You are a support agent assistant."},
-            {"role": "user", "content": "Are you working?"}
+            {"role": "user", "content": combined_prompt}
         ],
         "max_tokens": 1500,
         "temperature": 0.0
     }
     
     response = requests.post(
-        f"{azure_endpoint}/openai/deployments/{azure_deployment_name}/chat/completions?api-version=2023-03-15-preview",
+        f"{azure_endpoint}/openai/deployments/{azure_deployment_name}/completions?api-version=2023-03-15-preview",
         headers=headers,
         json=body
     )
